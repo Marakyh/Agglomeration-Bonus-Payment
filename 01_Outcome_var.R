@@ -25,7 +25,6 @@ options(scipen = 999)
 # Load functions
 # ----------------------------------------------------------
 
-source("./Functions/Graph_function.R")
 source("./Functions/NeighborCon_function.R")
 
 # Abbreviations
@@ -45,7 +44,7 @@ Districts <- read.csv("./Data/GemeindenKtBE.csv")
 Municipality_georeferenced <- st_read("./Data/GRENZ5_G5.shp")
 
 # Biodiversity promotion sites BPS
-BPS <- st_read("./Data/BFF1_BFF2_Vernetzung_Fläche.shp")
+BPS <- st_read("./Data/BFF1_BFF2_Vernetzung_FlÃ¤che.shp")
 # CRS: CH1903+ / LV95
 
 # Areas of intervention
@@ -59,7 +58,7 @@ MG <- st_read("./Data/VERNETZ_MG.shp")
 NBP <- filter(BPS, BPS$VERNETZUNG > 0)
 
 # Only inlcude sites in specific areas of intervention
-NBP <- NBP[NBP$Massnahmen %in% c("Vernetzungsgebiet Hügel / Hang", "Erhaltungsgebiet strukturreiche Landschaft",
+NBP <- NBP[NBP$Massnahmen %in% c("Vernetzungsgebiet HÃ¼gel / Hang", "Erhaltungsgebiet strukturreiche Landschaft",
                                  "Vernetzungsgebiet Tal / offenes Agrarland", "Vernetzungsgebiet offene Wiesenlandschaft"),
 ]
 
@@ -68,7 +67,7 @@ NBP <- NBP[NBP$CODE %in% c("611", "612", "617") & NBP$VERNETZUNG < 30,
 ]
 
 # Divide into control and treatment
-With_rule <- c("Vernetzungsgebiet Tal / offenes Agrarland", "Vernetzungsgebiet Hügel / Hang",
+With_rule <- c("Vernetzungsgebiet Tal / offenes Agrarland", "Vernetzungsgebiet HÃ¼gel / Hang",
                "Vernetzungsgebiet offene Wiesenlandschaft")
 NBP$Rule <- as.factor(ifelse(NBP$Massnahmen %in% With_rule, 1, 0))
 
