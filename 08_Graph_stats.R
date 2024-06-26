@@ -1,6 +1,7 @@
 ## Topologies of the networks ##
 
 load("./Data/NBP_A.Rda")
+source("./Functions/Make_net_function.R")
 
 #Subset
 NBP_A <- NBP_A[NBP_A$District_ID %in% c(242:246), ]
