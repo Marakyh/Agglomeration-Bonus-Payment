@@ -24,7 +24,7 @@ options(scipen = 999)
 
 # Load functions
 # ----------------------------------------------------------
-
+source("./Functions/Graph_function.R")
 source("./Functions/NeighborCon_function.R")
 
 # Abbreviations
